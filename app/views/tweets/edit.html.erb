@@ -1,0 +1,14 @@
+
+<%= form_for @tweet, action: :update do |tweet| %>
+    <% if @tweet.errors.present? %>
+        <ul>
+            <% @tweet.errors.full_messages.each do |error| %>
+                <li>
+                    <%= error %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+    <%= tweet.text_area :message, placeholder: @tweet.message %>
+    <%= tweet.submit '変更' %>
+<% end %>
